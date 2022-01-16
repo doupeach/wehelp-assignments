@@ -29,7 +29,7 @@
   font-size: 2rem;
 }
 
-.cards-container {
+#cards-container {
   width: 100%;
   margin-top: 35px;
   display: flex;
@@ -58,6 +58,7 @@
 
 .card img {
   width: 100%;
+  object-fit: cover;
 }
 
 .card div {
@@ -73,7 +74,7 @@
 }
 
 @media (max-width: 1200px) {
-  .cards-container {
+  #cards-container {
     width: 90%;
     margin: 35px auto 0;
   }
