@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `member`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `member` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` bigint NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -42,6 +42,34 @@ LOCK TABLES `member` WRITE;
 INSERT INTO `member` VALUES (1,'test2','test','test',0,'2022-01-30 14:59:38'),(2,'AG','AGUN','AGPW',10,'2022-01-30 15:01:42'),(3,'AK','AKUN','AKPW',2,'2022-01-30 15:05:23'),(4,'Kanka','KankaUN','KankaPW',5,'2022-01-30 15:06:13'),(5,'Molly','MollyUN','MollyPW',3,'2022-01-30 15:07:02');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `message`
+--
+
+DROP TABLE IF EXISTS `message`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `message` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `member_id` bigint NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `id_idx` (`member_id`),
+  CONSTRAINT `id` FOREIGN KEY (`member_id`) REFERENCES `member` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `message`
+--
+
+LOCK TABLES `message` WRITE;
+/*!40000 ALTER TABLE `message` DISABLE KEYS */;
+INSERT INTO `message` VALUES (0,1,'member1_content','2022-02-07 00:22:49'),(1,2,'member2_content','2022-02-07 00:22:49'),(2,3,'member3_content','2022-02-07 00:22:49'),(3,4,'member4_content','2022-02-07 00:22:49'),(5,5,'member5_content','2022-02-07 00:22:49'),(6,1,'member1_content2','2022-02-07 01:05:47');
+/*!40000 ALTER TABLE `message` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -52,4 +80,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-30 22:22:37
+-- Dump completed on 2022-02-07  1:28:15

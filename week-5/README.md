@@ -86,3 +86,21 @@ SELECT SUM(follower_count) FROM website.member;
 SELECT AVG(follower_count) FROM website.member;
 #### count avg of follower_count
   ![count avg of follower_count](/week-5/screenshots/A4_03.png)
+
+## Assignment 5 - SQL JOIN (Optional)
+在資料庫中，建立新資料表，取名字為 message。資料表中必須包含以下欄位設定：
+#### table message
+  ![table message](/week-5/screenshots/A5_01.png)
+
+### ● 使用 SELECT 搭配 JOIN 語法，取得所有留言，結果須包含留言者會員的姓名。
+SELECT * FROM website.message
+JOIN website.member ON website.member.id = website.message.member_id;
+#### message JOIN member_id = id
+  ![message JOIN member_id = id](/week-5/screenshots/A5_02.png)
+
+### ● 使用 SELECT 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留言，資料中須包含留言者會員的姓名。
+SELECT * FROM website.message
+JOIN website.member ON website.member.username = 'test' AND website.member.id = website.message.member_id;
+
+#### message JOIN username = test from member
+  ![message JOIN username = test from member](/week-5/screenshots/A5_03.png)
