@@ -14,14 +14,20 @@ function searchName(){
             res.json()
         )
         .then((jsonData) => {
-        let name = jsonData.data.name;
-        if(name === undefined){
-            errorMsg.innerHTML = 'User not found.'
-            nameAndUsername.innerHTML = ''
-        }else{
-            nameAndUsername.innerHTML = name + '(' + username + ')';
-            errorMsg.innerHTML = ''
-        }})
+
+            if(jsonData.data === null){
+                errorMsg.innerHTML = 'User not found.'
+                nameAndUsername.innerHTML = ''
+            }
+            else{
+                let name = jsonData.data.name
+                if(name === undefined){
+                errorMsg.innerHTML = 'User not found.'
+                nameAndUsername.innerHTML = ''
+            }else{
+                nameAndUsername.innerHTML = name + '(' + username + ')';
+                errorMsg.innerHTML = ''
+            }}})
         .catch((err) => 
         console.log('ERROR:', err)
         )
