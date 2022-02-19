@@ -124,7 +124,7 @@ def members():
 
             else:
                 dataToJson = {
-                    "data":{}
+                    "data":None
                 }
                 data = jsonify(dataToJson)
                 return data            
