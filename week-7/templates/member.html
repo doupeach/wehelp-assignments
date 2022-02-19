@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>week-7 assignment member page</title>
+</head>
+<body>
+    <div class="header"><h2>歡迎光臨，這是會員頁</h2></div>
+    <div class="logout-container">
+        <h3 id="welcome-msg">{{ memberName }}，歡迎登入系統</h3>
+        <a href="/signout">登出系統</a>
+        <h3>查詢會員姓名</h3>
+        <div class="toSearch">
+            <div class="label-input"><input type="text" name="username" id='usernameQuery' placeholder="輸入姓名查詢" required></div>
+            <button id="search-btn">查詢</button>
+        </div>
+        <h3 id="nameAndUsername"></h3>
+        <h3 id="errorMsg"></h3>
+
+        <h3>更新我的姓名</h3>
+        <div class="toUpdate">
+            <div class="label-input"><input type="text" name="name" id='nameToUpdate' placeholder="輸入新的姓名" required></div>
+            <button id="update-btn">更新</button>
+        </div>
+        <h3 id="updateStatus"></h3>
+
+    </div>
+
+    <script src="../static/js/fetchAPI.js"></script>
+</body>
+</html>
